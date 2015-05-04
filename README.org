@@ -1,0 +1,4 @@
+#+title: popup-pack
+#+author: ardumont
+
+Deal coherently with pop-up within emacs.
