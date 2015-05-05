@@ -26,21 +26,20 @@
 
 (require 'flycheck)
 
-(add-to-list 'display-buffer-alist
-             `(,(rx bos "*Flycheck errors*" eos)
-               (display-buffer-reuse-window
-                display-buffer-in-side-window)
-               (reusable-frames . visible)
-               (side            . bottom)
-               (window-height   . 0.4)))
+(defun popup-pack/define-popup-policy-for-buffers (buffer-names)
+  "Define the popup policy for the BUFFER-NAMES."
+  (mapc (lambda (buffer-name)
+          (let ((buffer-name-escaped-properly `(rx bos ,buffer-name eos)))
+            (add-to-list 'display-buffer-alist
+                         `(,buffer-name-escaped-properly
+                           (display-buffer-reuse-window
+                            display-buffer-in-side-window)
+                           (reusable-frames . visible)
+                           (side            . bottom)
+                           (window-height   . 0.4)))))
+        buffer-names))
 
-(add-to-list 'display-buffer-alist
-             `(,(rx bos "*Help*" eos)
-               (display-buffer-reuse-window
-                display-buffer-in-side-window)
-               (reusable-frames . visible)
-               (side            . bottom)
-               (window-height   . 0.4)))
+(popup-pack/define-popup-policy-for-buffers '("*Flycheck errors*" "*Help*" "*magit-commit*"))
 
 (defun popup-pack/quit-bottom-side-windows ()
   "Quit side windows of the current frame."
