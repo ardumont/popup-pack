@@ -39,8 +39,6 @@
                            (window-height   . 0.4)))))
         buffer-names))
 
-(popup-pack/define-popup-policy-for-buffers '("*Flycheck errors*" "*Help*" "*magit-commit*"))
-
 (defun popup-pack/quit-bottom-side-windows ()
   "Quit side windows of the current frame."
   (interactive)
@@ -66,7 +64,15 @@
   "Turn on `popup-pack-mode'."
   (popup-pack-mode +1))
 
+;; activate the global popup-pack mode
 (global-popup-pack-mode)
+
+;; Reference the global policy
+(popup-pack/define-popup-policy-for-buffers '("*Flycheck errors*"
+                                              "*Help*"
+                                              "*magit-commit*"
+                                              "*Completions*"
+                                              "*Compile-Log*"))
 
 (provide 'popup-pack)
 ;;; popup-pack.el ends here
