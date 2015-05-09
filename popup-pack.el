@@ -72,7 +72,8 @@
                                               "*Help*"
                                               "*magit-commit*"
                                               "*Completions*"
-                                              "*Compile-Log*"))
+                                              "*Compile-Log*"
+                                              "*Org tags*"))
 
 (provide 'popup-pack)
 ;;; popup-pack.el ends here
