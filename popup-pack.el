@@ -75,7 +75,8 @@
                                               "*Compile-Log*"
                                               "*Org tags*"
                                               "*Org MW Export*"
-                                              "*compilation*"))
+                                              "*compilation*"
+                                              "*magit-process*"))
 
 (provide 'popup-pack)
 ;;; popup-pack.el ends here
