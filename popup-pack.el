@@ -76,7 +76,8 @@
                                               "*Org tags*"
                                               "*Org MW Export*"
                                               "*compilation*"
-                                              "*magit-process*"))
+                                              "*magit-process*"
+                                              "*Python Completions*"))
 
 (provide 'popup-pack)
 ;;; popup-pack.el ends here
