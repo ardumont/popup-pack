@@ -77,7 +77,8 @@
                                               "*Org MW Export*"
                                               "*compilation*"
                                               "*magit-process*"
-                                              "*Python Completions*"))
+                                              "*Python Completions*"
+                                              "*anaconda-doc"))
 
 (provide 'popup-pack)
 ;;; popup-pack.el ends here
