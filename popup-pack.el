@@ -24,9 +24,7 @@
 
 ;;; Code:
 
-(require 'flycheck)
-
-(defun popup-pack/define-popup-policy-for-buffers (buffer-names)
+(defun popup-pack-define-popup-policy-for-buffers (buffer-names)
   "Define the popup policy for the BUFFER-NAMES."
   (mapc (lambda (buffer-name)
           (let ((buffer-name-escaped-properly `(rx bos ,buffer-name eos)))
@@ -39,7 +37,7 @@
                            (window-height   . 0.4)))))
         buffer-names))
 
-(defun popup-pack/quit-bottom-side-windows ()
+(defun popup-pack-quit-bottom-side-windows ()
   "Quit side windows of the current frame."
   (interactive)
   (dolist (window (window-at-side-list))
@@ -47,7 +45,7 @@
 
 (defvar popup-pack-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c q") 'popup-pack/quit-bottom-side-windows)
+    (define-key map (kbd "C-c q") 'popup-pack-quit-bottom-side-windows)
     map)
   "Keymap for Popup-pack mode.")
 
@@ -68,7 +66,7 @@
 (global-popup-pack-mode)
 
 ;; Reference the global policy
-(popup-pack/define-popup-policy-for-buffers '("*Flycheck errors*"
+(popup-pack-define-popup-policy-for-buffers '("*Flycheck errors*"
                                               "*Help*"
                                               "*magit-commit*"
                                               "*Completions*"
